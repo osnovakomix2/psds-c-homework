@@ -15,7 +15,7 @@ struct Stack
 {
     struct Node* node;
     unsigned long long size;
-    bool is_alive;
+    int is_alive;
 };
 
 struct Storage
