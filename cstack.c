@@ -3,7 +3,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
 struct Node
 {
@@ -55,7 +54,7 @@ hstack_t stack_new(void)
     struct Stack* st = storage.stack + storage.size;
     st->size = 0;
     st->node = NULL;
-    st->is_alive = true;
+    st->is_alive = 1;
     return (hstack_t)storage.size++;
 }
 
@@ -75,7 +74,7 @@ void stack_free(const hstack_t hstack)
     }
     st->node = NULL;
     st->size = 0;
-    st->is_alive = false;
+    st->is_alive = 0;
 }
 
 void stack_free_all(void)
@@ -96,7 +95,7 @@ int stack_valid_handler(const hstack_t hstack)
     {
         return 0;
     }
-    return storage.stack[hstack].is_alive ? true : false;
+    return storage.stack[hstack].is_alive ? 1 : 0;
 }
 
 unsigned int stack_size(const hstack_t hstack)
