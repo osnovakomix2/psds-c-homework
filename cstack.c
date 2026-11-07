@@ -30,9 +30,9 @@ static struct Storage storage = {0, 0, NULL};
 hstack_t resize(void)
 {
     unsigned long long new_capacity =
-    storage.capacity == 0 ? 1 : storage.capacity * 2;
+        storage.capacity == 0 ? 1 : storage.capacity * 2;
     struct Stack* ptr =
-    realloc(storage.stack, sizeof(struct Stack) * new_capacity);
+        realloc(storage.stack, sizeof(struct Stack) * new_capacity);
     if (ptr == NULL)
     {
         return -1;
